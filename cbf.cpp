@@ -309,9 +309,7 @@ namespace cbf {
 
     // Maps a single element (passed as a char array) to the CBF. For each hash
     // function, internal method SetCell is called, passing elements coupled with
-    // the area labels. The elements MUST be passed following the ascending-order
-    // of area labels. If this is not the case, the self-collision calculation (done
-    // by SetCell) will likely be wrong.
+    // its multiplicity.
     // char *string     element to be mapped
     // int size         length of the element
     // int multiplicity the element multiplicity
@@ -479,7 +477,6 @@ namespace cbf {
 
 
     // Returns the a-priori false positive probability over the entire filter
-    // (i.e. not area-specific)
     float CBF::GetFilterAPrioriFpp() const {
         double p;
 
@@ -492,7 +489,6 @@ namespace cbf {
 
 
     // Returns the a-posteriori false positive probability over the entire filter
-    // (i.e. not area-specific)
     float CBF::GetFilterFpp() const {
         double p;
         int c = 0;
