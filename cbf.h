@@ -35,6 +35,7 @@
 #include <windef.h>
 #include "win/libexport.h"
 #elif defined(_MSC_VER)
+#define NOMINMAX
 #include <windows.h>
 #include "win/libexport.h"
 #define WIN32_LEAN_AND_MEAN

@@ -30,7 +30,7 @@
 
 #include <iostream>
 #include <stdexcept>
-#include<bits/stdc++.h>
+#include <algorithm>
 
 #include <openssl/md4.h>
 #include <openssl/md5.h>
@@ -281,7 +281,13 @@ namespace cbf {
             myfile << "sparsity" << ";" << this->GetFilterSparsity() << std::endl;
             myfile << "a-priori fpp" << ";" << this->GetFilterAPrioriFpp() << std::endl;
             myfile << "fpp" << ";" << this->GetFilterFpp() << std::endl;
-            myfile << "a-priori overflow" << ";" << this->GetCellAPrioriOverflow() << std::endl;
+            myfile << "a-priori overflow" << ";";
+            myfile.setf(std::ios_base::scientific, std::ios_base::floatfield);
+
+            myfile << this->GetCellAPrioriOverflow() << std::endl;
+
+            myfile.setf(std::ios_base::fixed, std::ios_base::floatfield);
+            myfile.precision(5);
 
             for (int i = 0; i < this->cells; i++) {
                 myfile << "overflows_" << i << ";" << this->overflows[i] << std::endl;
